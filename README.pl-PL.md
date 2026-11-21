@@ -42,10 +42,10 @@ EdgeEver to nowoczesna, otwartoźródłowa przestrzeń do notatek i zarządzania
 Wielu użytkowników **aplikacji do notatek i osobistych baz wiedzy** szuka po prostu **niezawodnej, otwartej i szybkiej** osobistej bazy wiedzy. Popularne rozwiązania mają jednak swoje ograniczenia:
 
 * **Evernote**: Oferuje najpłynniejszą i najbardziej bezproblemową synchronizację w chmurze między wieloma urządzeniami. Z czasem stało się jednak rozbudowanym komercyjnym pakietem: przybyło reklam i dodatków, wzrosło zużycie zasobów, ograniczono darmowy plan, a zaawansowane funkcje AI są kosztowne. Trudno też połączyć je z samodzielnie hostowanymi usługami i prywatnymi procesami AI.
-* **Obsidian**: Pliki są otwarte, ale sam program ma zamknięty kod. Oficjalna synchronizacja jest płatna, a konfiguracja innych metod wymaga pracy. Przy tysiącach notatek lub wielu wtyczkach skanowanie lokalnych plików spowalnia uruchamianie i wyszukiwanie. Obrazy i załączniki powiększają magazyn, utrudniają synchronizację mobilną i mogą pozostawać po usunięciu notatek.
+* **Obsidian**: Otwarte pliki Markdown, lecz zamknięty kod rdzenia. Oficjalna synchronizacja wymaga stałej subskrypcji zależnej od pojemności i liczby skarbców, a rozwiązania zewnętrzne (iCloud, WebDAV, Git itp.) są żmudne i podatne na konflikty; ograniczona mechaniką synchronizacji lokalnych katalogów oraz restrykcjami tła na urządzeniach mobilnych, trudno jej dorównać płynności chmurowych aplikacji do notatek (brak też pełnej wersji webowej). Lokalne skanowanie powoduje wyraźne spowolnienia przy zimnym starcie i wyszukiwaniu przy tysiącach notatek lub wielu wtyczkach, a przechowywanie załączników razem z tekstem powiększa skarbiec, spowalnia synchronizację mobilną i zostawia osierocone pliki. W połączeniu z interfejsem przypominającym IDE i progiem wejścia związanym z dobieraniem wtyczek jest to rozwiązanie zbyt ciężkie do szybkiego, bezproblemowego notowania w dowolnym miejscu.
 * **Joplin**: Zasłużona, otwartoźródłowa aplikacja z układem trzech paneli, jednak jej interfejs i wygoda edycji sprawiają wrażenie zatrzymanych kilkanaście lat temu, bez nowoczesnej lekkości i dopracowania. Szybka oficjalna synchronizacja (Joplin Cloud) wymaga płatnej subskrypcji; darmowa synchronizacja przez WebDAV lub dyski chmurowe odpytuje pliki pojedynczo i zwalnia na urządzeniach mobilnych wraz ze wzrostem liczby notatek i załączników, natomiast własny Joplin Server wymaga utrzymywania serwera bez darmowej opcji serverless. Brakuje też pełnej przestrzeni roboczej w przeglądarce oraz natywnej obsługi agentów AI (MCP/ACP).
 * **Memos i notatki strumieniowe**: Są proste, ale interfejs przypominający oś czasu różni się od uporządkowanej pracy w trzech panelach.
-* **SiYuan i systemy oparte na blokach**: Oferują wiele funkcji i własny hosting, lecz szczegółowa struktura bloków utrudnia szybkie zapisywanie myśli i pisanie dłuższego tekstu. Brakuje im również bezpłatnego wdrożenia bezserwerowego, a synchronizacja między urządzeniami wymaga płatnej subskrypcji lub dodatkowo płatnego dostępu do S3/WebDAV.
+* **SiYuan i systemy oparte na blokach**: Oferują wiele funkcji i własny hosting, jednak ich interfejs oraz interakcja przypominają bardziej rozbudowane bazy wiedzy w stylu Obsidiana niż intuicyjny układ trzech paneli znany z tradycyjnych komercyjnych notatników chmurowych, a szczegółowa struktura bloków dodatkowo utrudnia szybkie zapisywanie myśli i pisanie dłuższego tekstu. Brakuje im również bezpłatnego wdrożenia bezserwerowego, a synchronizacja między urządzeniami wymaga płatnej subskrypcji lub dodatkowo płatnego dostępu do S3/WebDAV.
 
 **EdgeEver wypełnia tę lukę**: cały stos ma otwarty kod, zapewniając w pełni **płynną, błyskawiczną synchronizację w chmurze o niskim opóźnieniu między wieloma urządzeniami** oraz pełną swobodę bezpłatnego hostingu. Zachowuje znany układ trzech paneli, działa sprawnie nawet przy ponad 10 000 notatek i oferuje natywną współpracę z agentami AI oraz możliwość bezpłatnego wdrożenia.
 
@@ -102,7 +102,7 @@ W przypadku Cloudflare wybierz jedną z poniższych metod wdrożenia online:
 
 ### Opcja A: Wdrożenie z agentem AI (zalecane)
 
-Skopiuj poniższe polecenie do agenta AI, na przykład Codex, Claude, Cursor, WorkBuddy, Antigravity, OpenClaw lub Hermes Agent. Gdy agent poprosi o dostęp do GitHuba lub Cloudflare, sprawdź żądane uprawnienia i postępuj zgodnie z instrukcjami autoryzacji.
+Skopiuj poniższe polecenie do agenta AI, na przykład Codex, Claude Code, DeepSeek Harness, WorkBuddy lub Antigravity. Gdy agent poprosi o dostęp do GitHuba lub Cloudflare, sprawdź żądane uprawnienia i postępuj zgodnie z instrukcjami autoryzacji.
 
 ```text
 Wdróż EdgeEver przez GitHub i Cloudflare:
@@ -181,7 +181,7 @@ Zarówno przy codziennych kopiach zapasowych, bezproblemowej migracji między in
 
 ### Integracja z AI i protokołem MCP
 
-Utwórz token API w **Profil → API / MCP** i skopiuj konfigurację Remote MCP jednym kliknięciem. Agenci AI, tacy jak Claude Code, Cursor, Antigravity i OpenClaw, będą mogli bezpiecznie zarządzać Twoją bazą wiedzy w zakresie uprawnień konta. EdgeEver obsługuje pełne tworzenie, odczyt, edycję i usuwanie notatek tekstowych, diagramów (map myśli, schematów blokowych i diagramów architektury), tabel strukturalnych oraz natywnych notatek plakatowych. Agenci mogą też zarządzać strukturą notatników, tagami, załącznikami, historią wersji, szablonami i instrukcjami AI.
+Utwórz token API w **Profil → API / MCP** i skopiuj konfigurację Remote MCP jednym kliknięciem. Agenci AI, tacy jak Claude Code, Codex, DeepSeek Harness i Antigravity, będą mogli bezpiecznie zarządzać Twoją bazą wiedzy w zakresie uprawnień konta. EdgeEver obsługuje pełne tworzenie, odczyt, edycję i usuwanie notatek tekstowych, diagramów (map myśli, schematów blokowych i diagramów architektury), tabel strukturalnych oraz natywnych notatek plakatowych. Agenci mogą też zarządzać strukturą notatników, tagami, załącznikami, historią wersji, szablonami i instrukcjami AI.
 
 Konfigurację klientów, poziomy dostępu tokenów, rozwiązywanie problemów i przykładowe reguły dla agentów opisuje [Using EdgeEver with MCP clients](docs/mcp-guide.md) (po angielsku).
 
@@ -333,17 +333,19 @@ EdgeEver jest oprogramowaniem do samodzielnego hostingu. Poza oficjalnymi instan
   <a href="https://github.com/alyyasser"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/16476111?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@alyyasser" /></a>
   <a href="https://github.com/MadlyFX"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/4896705?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@MadlyFX" /></a>
   <a href="https://github.com/claude"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/81847?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@claude" /></a>
-  <a href="https://github.com/Crowszzz"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/75199133?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Crowszzz" /></a>
   <a href="https://github.com/CottonChou"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/17818375?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@CottonChou" /></a>
   <a href="https://github.com/Z-DDV"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/122068983?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Z-DDV" /></a>
   <a href="https://github.com/DavidPivert"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/61420909?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@DavidPivert" /></a>
   <a href="https://github.com/0xfelixli"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/81979996?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@0xfelixli" /></a>
+  <a href="https://github.com/jayhemnani9910"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/193022578?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@jayhemnani9910" /></a>
   <a href="https://github.com/Sergmay911"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/304439776?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Sergmay911" /></a>
   <a href="https://github.com/X77seven"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/171017641?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@X77seven" /></a>
   <a href="https://github.com/imgdown"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/348032096?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@imgdown" /></a>
+  <a href="https://github.com/xinyang920"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/43229479?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@xinyang920" /></a>
   <a href="https://github.com/mookim-eth"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/97934198?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@mookim-eth" /></a>
   <a href="https://github.com/nzhdotme"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/9588882?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@nzhdotme" /></a>
   <a href="https://github.com/tankle0"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/63094764?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@tankle0" /></a>
   <a href="https://github.com/Shunamxiao"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/92215296?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Shunamxiao" /></a>
+  <a href="https://github.com/Crowszzz"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/75199133?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Crowszzz" /></a>
 </p>
 <!-- readme-contributors:end -->

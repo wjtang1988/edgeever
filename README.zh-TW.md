@@ -42,10 +42,10 @@ EdgeEver 是一款現代化的開源筆記與個人知識庫工作區。它延�
 很多**筆記與個人知識庫**的使用者，核心需求只是一個**可靠、開放、回應迅速**的個人知識庫。然而，當下的主流方案都各有痛點：
 
 * **印象筆記 / Evernote**：擁有最無感、最絲滑的多端雲端同步體驗。然而隨著它演進為全功能商業套件，廣告與附加功能漸多，系統開銷也隨之走高；加之免費版配額收緊、高級 AI 訂閱昂貴，且難以靈活接入現代自託管與私有 AI 工作流。
-* **Obsidian**：Markdown 開放，核心閉源；官方同步收費，第三方同步繁瑣；純本地檔案依賴遍歷掃描，當筆記累積到數千上萬條或載入複雜外掛後，冷啟動與全庫檢索明顯卡頓遲緩；圖片與附件與文字混存，儲存庫體積極易膨脹導致行動端同步緩慢，且刪除筆記後殘留附件難清理；對於「隨時隨地隨手記」的輕量場景來說偏重。
+* **Obsidian**：Markdown 開放，核心閉源；官方同步按容量與儲存庫數量持續訂閱收費，第三方同步（iCloud / WebDAV / Git 等）繁瑣且易衝突，受限於純本地檔案目錄的同步機制與行動端背景限制，難以像雲原生筆記那樣絲滑無感同步（且缺少完整 Web 端）；依賴本地遍歷掃描，筆記上千或外掛增多後冷啟動與檢索明顯卡頓；附件混存易膨脹、拖慢行動同步且刪後難清理；加之類似 IDE 的互動與外掛折騰生態上手門檻較高，對於習慣傳統雲端筆記「開箱即用、隨時隨地隨手記」的使用者來說明顯偏重。
 * **Joplin**：老牌開源三欄筆記，但介面觀感與編輯互動彷彿還停留在十幾年前，缺乏現代軟體的精緻與流暢感；官方高速同步（Joplin Cloud）需付費訂閱，免費同步若走 WebDAV 或雲端硬碟，受限於逐檔輪詢，筆記與附件增多後（尤其在行動端）同步緩慢，而自建 Joplin Server 又必須自備伺服器維護，缺少零成本 Serverless 方案；此外它沒有可在瀏覽器即開即用的完整 Web 工作區，也缺乏原生 AI Agent（MCP/ACP）與多模態知識型態。
 * **Memos / Flomo 等輕量筆記**：雖然簡單好用，但時間軸卡片版面與習慣了經典「三欄工作流程」的使用者有著天然的互動習慣差異。
-* **思源筆記等區塊級知識庫**：功能深厚且支援開源自託管，但全盤的「區塊級（Block）」架構使得日常隨手記錄與連續排版書寫的心智負擔偏重；且缺少零伺服器成本的 Serverless 部署型態，多端同步主要依賴官方付費訂閱，或需額外付費解鎖 S3/WebDAV 同步特性並自備儲存。
+* **思源筆記等區塊級知識庫**：功能深厚且支援開源自託管，但 UI 互動更貼近 Obsidian 式的重度知識庫而非傳統商業雲端筆記的直覺三欄體驗，全盤的「區塊級（Block）」架構也使得日常隨手記錄與連續排版書寫的心智負擔偏重；且缺少零伺服器成本的 Serverless 部署型態，多端同步主要依賴官方付費訂閱，或需額外付費解鎖 S3/WebDAV 同步特性並自備儲存。
 
 **EdgeEver 恰好填補了這一空白**：全端開源，提供真正**零感知、低延遲的多端瞬時雲端同步**，且全部服務均可免費自行託管；同時保留經典三欄版面與流暢排版，萬條筆記常駐依然輕盈絲滑，原生支援接入 AI Agent，部署維護零門檻、零費用。
 
@@ -102,7 +102,7 @@ Cloudflare 線上部署可以選擇以下兩種方式之一：
 
 ### 方案一：交給 AI Agent 部署（建議）
 
-將下方提示詞直接複製傳送給 AI Agent（如 Codex、Claude、Cursor、WorkBuddy、Antigravity、OpenClaw、Hermes Agent 等）。執行過程中，如需存取 GitHub 或 Cloudflare，請確認權限範圍並依提示完成授權。
+將下方提示詞直接複製傳送給 AI Agent（如 Codex、Claude Code、DeepSeek Harness、WorkBuddy、Antigravity 等）。執行過程中，如需存取 GitHub 或 Cloudflare，請確認權限範圍並依提示完成授權。
 
 ```text
 請全程透過 GitHub 和 Cloudflare 線上部署 EdgeEver：
@@ -182,7 +182,7 @@ curl -fsSL https://edgeever.org/install.sh | bash
 
 ### AI 與 MCP 協定互聯
 
-在 **個人中心** -> **API / MCP** 中建立 API Token 並一鍵複製 Remote MCP 設定，即可讓 Claude Code、Cursor、Antigravity、OpenClaw 等 AI Agent 在帳號授權範圍內安全管理你的知識庫。系統支援文字筆記、圖表筆記（心智圖、流程圖與架構圖）、多維表格筆記與原生海報筆記的完整增刪改查，Agent 還可管理筆記本目錄、標籤、附件、歷史版本、筆記範本與 AI 指令。
+在 **個人中心** -> **API / MCP** 中建立 API Token 並一鍵複製 Remote MCP 設定，即可讓 Claude Code、Codex、DeepSeek Harness、Antigravity 等 AI Agent 在帳號授權範圍內安全管理你的知識庫。系統支援文字筆記、圖表筆記（心智圖、流程圖與架構圖）、多維表格筆記與原生海報筆記的完整增刪改查，Agent 還可管理筆記本目錄、標籤、附件、歷史版本、筆記範本與 AI 指令。
 
 用戶端設定、Token 權限、問題排查與 Agent 工作規則範例，請參閱 [在 MCP 用戶端與 AI Agent 中使用 EdgeEver](docs/mcp-guide.zh-CN.md)（簡體中文）。
 
@@ -340,17 +340,19 @@ EdgeEver 是自行託管軟體。除官方展示實例外，專案維護者不�
   <a href="https://github.com/alyyasser"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/16476111?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@alyyasser" /></a>
   <a href="https://github.com/MadlyFX"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/4896705?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@MadlyFX" /></a>
   <a href="https://github.com/claude"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/81847?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@claude" /></a>
-  <a href="https://github.com/Crowszzz"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/75199133?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Crowszzz" /></a>
   <a href="https://github.com/CottonChou"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/17818375?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@CottonChou" /></a>
   <a href="https://github.com/Z-DDV"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/122068983?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Z-DDV" /></a>
   <a href="https://github.com/DavidPivert"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/61420909?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@DavidPivert" /></a>
   <a href="https://github.com/0xfelixli"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/81979996?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@0xfelixli" /></a>
+  <a href="https://github.com/jayhemnani9910"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/193022578?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@jayhemnani9910" /></a>
   <a href="https://github.com/Sergmay911"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/304439776?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Sergmay911" /></a>
   <a href="https://github.com/X77seven"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/171017641?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@X77seven" /></a>
   <a href="https://github.com/imgdown"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/348032096?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@imgdown" /></a>
+  <a href="https://github.com/xinyang920"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/43229479?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@xinyang920" /></a>
   <a href="https://github.com/mookim-eth"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/97934198?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@mookim-eth" /></a>
   <a href="https://github.com/nzhdotme"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/9588882?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@nzhdotme" /></a>
   <a href="https://github.com/tankle0"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/63094764?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@tankle0" /></a>
   <a href="https://github.com/Shunamxiao"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/92215296?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Shunamxiao" /></a>
+  <a href="https://github.com/Crowszzz"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/75199133?v=4&h=96&w=96&fit=cover&mask=circle&maxage=7d" width="48" height="48" alt="@Crowszzz" /></a>
 </p>
 <!-- readme-contributors:end -->

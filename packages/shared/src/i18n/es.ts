@@ -281,6 +281,8 @@ export const es = {
     "historyFailed": "Esta revisión no se completó",
     "historyUndone": "Esta revisión se deshizo",
     "doubleClickText": "Haz doble clic en el texto del gráfico para editarlo. Los cambios se guardan automáticamente.",
+    "editWithAi": "Editar con el chat de IA",
+    "aiEditHint": "Pide al asistente de IA que cambie el contenido, los colores o el diseño.",
     "structureSettings": "Estructura y estilo · Edición por lotes",
     "editSyntax": "Editar sintaxis de origen",
     "backToStructure": "Volver a estructura y estilo",
@@ -748,6 +750,10 @@ export const es = {
     "refresh": "Actualizar",
     "refreshTooltip": "Recargar esta tabla",
     "refreshError": "No se pudo recargar la tabla",
+    "openUrl": "Abrir enlace {{url}}",
+    "openUrlTooltip": "Abrir enlace",
+    "editUrl": "Editar URL en {{name}}",
+    "editUrlTooltip": "Editar URL",
     "form": {
       "title": "Recopilación por formulario",
       "description": "Comparte un enlace de formulario para que otros lo completen. Las respuestas se añadirán como nuevos registros en la tabla y los encuestados no podrán ver las filas existentes.",
@@ -3701,6 +3707,10 @@ export const es = {
     "description": "Migra notas desde plataformas de terceros con la importación por lotes recomendada mediante MCP y agentes de IA."
   },
   "session": {
+    currentInstance: "URL de la instancia",
+    signOutDescription: "Después de cerrar sesión, puedes cambiar de cuenta o conectarte a una nueva dirección de instancia.",
+    webSignOutDescription: "Después de cerrar sesión, volverás a la página de inicio de sesión de esta instancia.",
+    logoutFailed: "No se pudo completar el cierre de sesión. Inténtalo de nuevo.",
     "loggingOut": "Cerrando sesión...",
     "logout": "Cerrar sesión"
   },
@@ -3906,6 +3916,11 @@ export const es = {
       "legacy-custom": {
         "label": "Acceso personalizado heredado"
       }
+,
+      "custom": {
+        "label": "Acceso personalizado",
+        "description": "Acceso global completo, restringido a los cuadernos seleccionados abajo con permisos de lectura/escritura individuales."
+      }
     },
     "loadingTokens": "Cargando tokens...",
     "emptyTokens": "No hay tokens de API",
@@ -3916,6 +3931,51 @@ export const es = {
     "legacyTokenCannotCopy": "No se puede copiar el token antiguo",
     "legacyConfigCannotCopy": "No se puede copiar la configuración de MCP para tokens antiguos",
     "deleteToken": "Eliminar token",
+    "editToken": "Editar token",
+    "editTokenTitle": "Editar token «{{name}}»",
+    "notebookAccessTitle": "Acceso a cuadernos",
+    "notebookAccessAll": "Todos los cuadernos",
+    "notebookAccessSelected": "Cuadernos seleccionados",
+    "notebookAccessHint": "{{count}} cuadernos autorizados (incluidos subcuadernos)",
+    "notebookAccessEmpty": "Aún no hay cuadernos en este espacio de trabajo.",
+    "notebookAccessAllDescription": "Este token puede acceder a todos los cuadernos del espacio de trabajo.",
+    "notebookAccessSummary": "Cuadernos: {{notebooks}}",
+    "notebookRead": "Lectura",
+    "notebookWrite": "Escritura",
+    "notebookBulkSelect": "Seleccionar todo",
+    "notebookBulkSelectDescription": "Añadir todos los cuadernos a la lista blanca.",
+    "notebookBulkClear": "Borrar",
+    "notebookBulkClearDescription": "Vaciar la lista blanca (sin acceso).",
+    "notebookInherited": "heredado",
+    "notebookAccessLevelTitle": "Acceso de la lista blanca",
+    "notebookAccessLevelDescription": "Un nivel se aplica a toda la lista blanca; los cuadernos no marcados (incluidos los nuevos) son invisibles.",
+    "notebookAccessLevelSummary": "Nivel: {{access}}",
+    "notebookAccessLevel": {
+      "read": {
+        "label": "Solo lectura",
+        "description": "Los cuadernos de la lista blanca son de solo lectura."
+      },
+
+      "write": {
+        "label": "Lectura/escritura",
+        "description": "Los cuadernos de la lista blanca se pueden leer y escribir."
+      }
+
+    },
+    "notebookDefaultAccess": {
+      "none": {
+        "label": "Sin acceso",
+        "description": "Los cuadernos sin concesión (incluidos los nuevos) no son visibles ni editables."
+      },
+      "read": {
+        "label": "Solo lectura",
+        "description": "Los cuadernos sin concesión (incluidos los nuevos) solo se pueden leer."
+      },
+      "write": {
+        "label": "Lectura/escritura",
+        "description": "Los cuadernos sin concesión (incluidos los nuevos) se pueden leer y escribir."
+      }
+    },
     "description": "Autoriza al Web Clipper, servicios de MCP y agentes de IA a acceder a tus notas.",
     "namePlaceholder": "Nombre del token (p. ej., Chrome Clipper o Claude Desktop)",
     "createToken": "Crear token",
